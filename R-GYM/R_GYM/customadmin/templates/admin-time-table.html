@@ -1,0 +1,156 @@
+{% load static %}
+{% include 'admin-header.html' %}
+    <div class="py-4">
+        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                <li class="breadcrumb-item"> <a href="#">
+                    <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                    </a> </li>
+                <li class="breadcrumb-item"><a href="#">Time Table</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Time Table</li>
+            </ol>
+        </nav>
+        <div class="d-flex justify-content-between">
+            <h1 class="h4">Class Time Table</h1>
+            <div>
+                <button type="button" class="btn btn-block btn-gray-800" data-bs-toggle="modal" data-bs-target="#modal-add-class-time">Add Class Time</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-xl-12">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="card border-0 shadow">
+
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th class="border-bottom" scope="col">ID</th>
+                                        <th class="border-bottom" scope="col">Class Name</th>
+                                        <th class="border-bottom" scope="col">Class Day</th>
+                                        <th class="border-bottom" scope="col">Class Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% if fetch_timetable %}
+                                {% for timetable in fetch_timetable %}
+                                    <tr>
+                                        <th class="text-gray-900" scope="row">{{ timetable.timetable_id }}</th>
+                                        <td class="fw-bolder text-gray-500">{{ timetable.timetable_class }}</td>
+                                        <td class="fw-bolder text-gray-500">{{ timetable.timetable_day }}</td>
+                                        <td class="fw-bolder text-gray-500">{{ timetable.timetable_starttime }} - {{ timetable.timetable_endtime }}</td>
+                                    </tr>
+                                {% endfor %}
+                                {% else %}
+                                <tr><td>No Time Table Found</td></tr>
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-add-class-time" tabindex="-1" role="dialog" aria-labelledby="modal-add-class-time" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="h6 modal-title">ADD CLASS TIME</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" id="add-time-table">
+                    {% csrf_token %}
+                <div class="modal-body">
+                    <div class="container">
+                            <div class="row py-2">
+                                <div class="col-md-6">
+                                    <label>Select Class</label>
+                                    <select class="form-select" name="class-name" id="class-name">
+                                        {% if fetch_class %}
+                                        {% for class in fetch_class %}
+                                        <option value="{{ class.class_name }}">{{ class.class_name }}</option>
+                                        {% endfor %}
+                                        {% else %}
+                                        <option>No Class Found</option>
+                                        {% endif %}
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Select Day</label>
+                                    <select class="form-select" name="day" id="day">
+                                        <option value="Monday">Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                        <option value="Thursday">Thursday</option>
+                                        <option value="Friday">Friday</option>
+                                        <option value="Saturday">Saturday</option>
+                                        <option value="Sunday">Sunday</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-md-6">
+                                    <label>Select Start Time</label>
+                                    <input type="time" class="form-control" name="start-time" id="start-time">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Select End Time</label>
+                                    <input type="time" class="form-control" name="end-time" id="end-time">
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-block btn-gray-800" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-secondary float-right" data-bs-toggle="modal">Add</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+$("#add-time-table").on("submit", function(e){
+        e.preventDefault();
+        var formdata = new FormData(this);
+        var csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val();
+        formdata.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
+        $.ajax({
+            type: 'POST',
+            url: 'add-time-table',
+            data: formdata,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+            const notyf = new Notyf({
+                position: {
+                    x: 'right',
+                    y: 'top',
+                },
+                types: [
+                    {
+                        type: 'error',
+                        background: '#198754',
+                        icon: {
+                            className: 'fas fa-times',
+                            tagName: 'span',
+                            color: '#fff'
+                        },
+                        dismissible: false
+                    }
+                ]
+            });
+            notyf.open({
+                type: 'error',
+                message: 'New Time Has Been Inserted'
+            });
+            }
+        });
+});
+</script>
+<script src="{% static 'admin/vendor/sweetalert2/dist/sweetalert2.all.min.js' %}"></script>
+{% include 'admin-footer.html' %}

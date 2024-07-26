@@ -1,0 +1,202 @@
+{% load static %}
+{% include 'header.html' %}
+{% if fetch_product %}
+{% for product in fetch_product %}
+<!--=================================
+Page title -->
+<section class="page-title bg-holder bg-overlay-black-50" data-jarallax='{"speed": 0.6}' style="background-image: url(static/images/bg/06.jpg);">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center position-relative">
+          <h1 class="text-stroke-primary display-2 fw-bold text-uppercase">{{ product.product_name }}</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+Page title -->
+
+<!--=================================
+product single -->
+<section class="space-ptb shop-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-md-5 mb-4 mb-md-0">
+            <div class="slider-slick">
+              <div class="slider slider-for detail-big-car-gallery">
+                <img src="{{ product.product_image.url }}" alt="{{ product.product_image }}" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="product-detail">
+              <h4>Jukebox Single Gym Towel</h4>
+              <div class="product-price-rating">
+                <div class="product-rating d-flex">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="far fa-star"></i>
+                  <a href="#reviews" class="text-dark ms-2" rel="nofollow">(<span class="count">4</span> customer reviews)</a>
+                </div>
+                <div class="product-price">
+                  <h4>$ {{ product.product_price }}</h4>
+                </div>
+              </div>
+              <p>{{ product.product_short_description }}</p>
+              <a class="btn btn-primary btn-md mt-2 mt-sm-0" href="shop-checkout?product-id={{ product.product_id }}"> <span> <i class="fas fa-shopping-cart"></i> Buy Now </span> </a>
+              <hr class="hr-dark">
+              <div class="product-detail-meta">
+                <span>SKU: 9624 </span>
+                <span>Category: {{ product.product_category }}</span>
+                <span>Tags: {{ product.product_tag }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-12">
+        <ul class="nav nav-tabs nav-tabs-02" id="myTab2" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="description-tab" data-bs-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true"> <span> Description</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="tab-reviews" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false"><span>Reviews (4)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mb-0" id="custom-tab" data-bs-toggle="tab" href="#custom" role="tab" aria-controls="custom" aria-selected="false"><span>Custom Tab</span></a>
+          </li>
+        </ul>
+        <div class="tab-content mt-5" id="myTabContent2">
+          <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+            <div class="row">
+              <div class="col-sm-12">
+                <h5>So why do we do it?</h5>
+                <p class="mb-4">{{ product.product_description }}</p>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-4">
+                <div class="d-flex mb-5 mb-md-0">
+                  <div class="feature-info-icon">
+                    <i class="fas fa-truck-pickup font-xxxl"></i>
+                  </div>
+                  <div class="ms-4">
+                    <h5 class="feature-info-title">Free shipping</h5>
+                    <p>Free Shipping on orders $199.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="d-flex mb-5 mb-md-0">
+                  <div class="feature-info-icon">
+                    <i class="far fa-comments font-xxxl"></i>
+                  </div>
+                  <div class="ms-4">
+                    <h5 class="feature-info-title">24/7 Support</h5>
+                    <p>Online and phone support 24 / 7</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="d-flex mb-0">
+                  <div class="feature-info-icon">
+                    <i class="fas fa-sync-alt font-xxxl"></i>
+                  </div>
+                  <div class="ms-4">
+                    <h5 class="feature-info-title">30 Days return</h5>
+                    <p>30 days money-back guarantee.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="tab-reviews">
+            <div class="row">
+              <div class="col-12">
+                <h5 class="mb-4">4 Reviews for women’s fabric mix midi wrap jumpsuit</h5>
+                <div class="commentlist">
+                  <div class="comment-author">
+                    <img class="avatar avatar-lg" src="{% static 'images/avatar/01.jpg' %}" alt="">
+                  </div>
+                  <div class="comment-content">
+                    <div class="reviews">
+                      <p class="meta">
+                        <strong>Sara Lisbon </strong>(verified owner) – November 8, 2020
+                      </p>
+                      <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
+                      </div>
+                    </div>
+                    <p>For those of you who are serious about having more, doing more, giving more and being more, success is achievable with some understanding of what to do, some discipline around planning and execution of those plans and belief that you can achieve your desires.</p>
+                  </div>
+                </div>
+                <div class="mt-4 ">
+                  <h5>Add a review</h5>
+                  <p>Your email address will not be published. Required fields are marked *</p>
+                </div>
+                <form class="row mt-4 align-items-center">
+                  <div class="mb-3 col-sm-12">
+                    <label class="form-label">Name*</label>
+                    <input type="text" class="form-control" placeholder="">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <label class="form-label">Email*</label>
+                    <input type="email" class="form-control" placeholder="">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <label class="form-label">Your review *</label>
+                    <div class="product-rating">
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </div>
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <label class="form-label">Your review *</label>
+                    <div class="mb-3">
+                      <textarea class="form-control" rows="5" id="comment"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-check col-sm-12 p-0">
+                    <div class="custom-control form-check custom-checkbox p-0">
+                      <input type="checkbox" class="custom-control-input me-1" id="customCheck15">
+                      <label class="custom-control-label" for="customCheck15">Save my name, email, and website in this browser for the next time I comment.</label>
+                    </div>
+                  </div>
+                  <div>
+                    <a class="btn btn-primary btn-md mt-4" href="#"> Submit </a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="custom" role="tabpanel" aria-labelledby="custom-tab">
+            <div class="row">
+              <div class="col-12">
+                <h5>More Informatioon</h5>
+                <p>{{ product.product_information }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+product single -->
+{% endfor %}
+{% endif %}
+{% include 'footer.html' %}

@@ -1,0 +1,199 @@
+{% load static %}
+{% include 'header.html' %}
+
+<!--=================================
+Page title -->
+<section class="page-title bg-holder bg-overlay-black-50" data-jarallax='{"speed": 0.6}' style="background-image: url(static/images/bg/06.jpg);">
+  <div class="container">
+    <div class="row position-relative">
+      <div class="col-12 text-center">
+          <h1 class="text-stroke-primary display-2 fw-bold text-uppercase">Services</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Services</li>
+            </ol>
+          </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+Page title -->
+
+<!--=================================
+Services -->
+<section class="space-ptb">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="mb-4 mb-md-5 text-center px-4">
+          <img class="img-fluid" src="{% static 'images/icon/01.png' %}" alt="">
+          <h5 class="mt-4 mb-3">A Balanced Mind</h5>
+          <p class="mb-0">Success isn’t really that difficult. There is a significant portion of the.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+      <div class="mb-4 mb-md-5 text-center px-4">
+          <img class="img-fluid" src="{% static 'images/icon/02.png' %}" alt="">
+          <h5 class="mt-4 mb-3">Bring A Change</h5>
+          <p class="mb-0">For those of you who are serious about having more, doing more.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+      <div class="mb-4 mb-md-5 text-center px-4">
+          <img class="img-fluid" src="{% static 'images/icon/03.png' %}" alt="">
+          <h5 class="mt-4 mb-3">Revive And Relax</h5>
+          <p class="mb-0">The first thing to remember about success is that it is a process.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mb-4 mb-md-0 text-center px-4">
+          <img class="img-fluid" src="{% static 'images/icon/04.png' %}" alt="">
+          <h5 class="mt-4 mb-3">For Your Inner Peace</h5>
+          <p class="mb-0">Some people will tell you there are four while others may tell you there.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+      <div class="mb-4 mb-md-0 text-center px-4">
+          <img class="img-fluid" src="{% static 'images/icon/05.png' %}" alt="">
+          <h5 class="mt-4 mb-3">Calm Your Mind</h5>
+          <p class="mb-0">Making a decision to do something – this is the first step.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+      <div class="text-center px-4">
+          <img class="img-fluid" src="{% static 'images/icon/06.png' %}" alt="">
+          <h5 class="mt-4 mb-3">Stretch And Relax</h5>
+          <p class="mb-0">So, make the decision to move forward. Commit your decision to paper, just to.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+ Services -->
+
+ <!--=================================
+Call now -->
+<section class="space-ptb bg-holder bg-overlay-black-80" data-jarallax='{"speed": 0.6}' style="background-image: url(static/images/bg/02.jpg);">
+  <div class="container">
+    <div class="row align-items-center position-relative">
+      <div class="col-lg-8 text-center text-lg-start">
+        <h2 class="text-white display-4 fw-bold"> <span class="text-stroke-primary"> have questions?</span> call us and get a free consultation</h2>
+        <a class="btn btn-secondary mt-4 btn-skew" href="#"> <span> Call Now </span></a>
+      </div>
+       <div class="col-lg-4 mt-5 mt-lg-0">
+          <a class="play-video-lg popup-youtube mx-auto " href="https://www.youtube.com/watch?v=LgvseYYhqU0"><i class="fas fa-play"></i> </a>
+       </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+Call now -->
+
+    <!--=================================Pricing -->
+    <section class="space-ptb bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="section-title text-center">
+              <span class="sub-title text-secondary"><span class="title-shape me-2"></span> Train Our pricing</span>
+              <h2>A plan for every price</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          {% if fetch_package %}
+          {% for package in fetch_package %}
+          <div class="col-md-4 mb-md-0 mb-4">
+            <div class="pricing bg-white p-4 p-lg-5">
+              <div class="text-center">
+                <h5 class="pricing-title text-uppercase mb-3">{{ package.package_name }}</h5>
+                <p>Positive pleasure-oriented goals are much more powerful.</p>
+                <span class="pricing-price d-block mb-4 mt-3"><strong class="display-4 fw-bold text-dark">${{ package.package_price }}</strong>/{{ package.package_duration }}</span>
+              </div>
+              <ul class="list-unstyled pricing-list mb-4">
+                <li class="d-flex text-dark mb-3">Cardio <i class="ms-auto fas fa-check text-success font-md"></i> </li>
+                <li class="d-flex text-dark mb-3">Swimming Pool <i class="ms-auto fas fa-times text-danger font-md"></i> </li>
+                <li class="d-flex text-dark mb-3">Gym <i class="ms-auto fas fa-times text-danger font-md"></i> </li>
+                <li class="d-flex text-dark mb-3">Group Lessons <i class="ms-auto fas fa-times text-danger font-md"></i> </li>
+                <li class="d-flex text-dark mb-3">Aerobics <i class="ms-auto fas fa-check text-success font-md"></i> </li>
+                <li class="d-flex text-dark">Crossfit <i class="ms-auto fas fa-check text-success font-md"></i> </li>
+              </ul>
+              <div class="d-grid">
+                <a class="btn btn-outline-secondary btn-skew" href="#" data-bs-toggle="modal" data-bs-target="#pricingModal" ><span>Become A Member</span></a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </section>
+    <!--=================================Pricing -->
+    <!--=================================Modal Pricing -->
+    <div class="modal login fade" id="pricingModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="loginModalLabel">Buy MemberShip</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <ul class="nav nav-tabs nav-tabs-02 justify-content-center" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="login-tab" data-bs-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="false"> <span> VISA Card</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="register-tab" data-bs-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="true"><span>Paypal</span></a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                <form class="row mt-2 align-items-center">
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Name on Card">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Enter Card Number (0000 0000 0000 0000)">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <input type="Password" class="form-control" placeholder="Enter Expiration Date (MM/YY)">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Enter CVV (123)">
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="d-grid">
+                      <button type="submit" class="btn btn-primary">Buy Now</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                <form class="row mt-2 align-items-center">
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Enter First Name">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Enter Last Name">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <input type="Password" class="form-control" placeholder="Enter Email">
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="d-grid">
+                      <button type="submit" class="btn btn-primary">Buy Now</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--=================================Modal Pricing -->
+
+{% include 'footer.html' %}

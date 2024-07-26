@@ -1,0 +1,152 @@
+{% load static %}
+{% include 'admin-header.html' %}
+    <div class="py-4">
+        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                <li class="breadcrumb-item"> <a href="#">
+                    <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                    </a> </li>
+                <li class="breadcrumb-item"><a href="#">Trainer</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Trainer</li>
+            </ol>
+        </nav>
+        <div class="d-flex justify-content-between">
+            <h1 class="h4">Trainer</h1>
+            <div>
+                <button type="button" class="btn btn-block btn-gray-800" data-bs-toggle="modal" data-bs-target="#modal-trainer">Add Trainer</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-xl-12">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="card border-0 shadow">
+
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th class="border-bottom" scope="col">ID</th>
+                                        <th class="border-bottom" scope="col">Trainer Image</th>
+                                        <th class="border-bottom" scope="col">Trainer Name</th>
+                                        <th class="border-bottom" scope="col">Trainer Speciality</th>
+                                        <th class="border-bottom" scope="col">Training Type</th>
+                                        <th class="border-bottom" scope="col">Trainer Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% if fetch_trainer %}
+                                {% for trainer in fetch_trainer %}
+                                    <tr>
+                                        <th class="text-gray-900" scope="row">{{ trainer.trainer_id }}</th>
+                                        {% if trainer.trainer_image %}
+                                        <td class="fw-bolder text-gray-500"><img class="img-fluid" src="{{ trainer.trainer_image.url}}" alt="{{ trainer.trainer_image }}" width="100" height="100"></td>
+                                        {% endif %}
+                                        <td class="fw-bolder text-gray-500">{{ trainer.trainer_name }}</td>
+                                        <td class="fw-bolder text-gray-500">{{ trainer.trainer_speciality }}</td>
+                                        <td class="fw-bolder text-gray-500">{{ trainer.trainer_type }}</td>
+                                        <td class="fw-bolder text-gray-500">{{ trainer.trainer_description|truncatewords:10 }}</td>
+                                    </tr>
+                                {% endfor %}
+                                {% else %}
+                                <tr><td colspan="7">No Trainer Found</td></tr>
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-trainer" tabindex="-1" role="dialog" aria-labelledby="modal-trainer" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="h6 modal-title">ADD TRAINER</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" id="add-trainer" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <div class="modal-body">
+                    <div class="container">
+                            <div class="row py-2">
+                                <div class="col-md-6">
+                                    <label>Trainer Name</label>
+                                    <input type="text" class="form-control" name="trainer-name" id="trainer-name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Training Type</label>
+                                    <input type="text" class="form-control" name="trainer-type" id="trainer-type">
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-md-6">
+                                    <label>Trainer Speciality</label>
+                                    <input type="text" class="form-control" name="trainer-speciality" id="trainer-speciality">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Trainer Image</label>
+                                    <input type="file" class="form-control" name="trainer-image" id="trainer-image">
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-md-12">
+                                    <label>Trainer Description</label>
+                                    <textarea class="form-control" cols="4" rows="5" name="trainer-description" id="trainer-description"></textarea>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-block btn-gray-800" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-secondary float-right" data-bs-toggle="modal">Add</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+$("#add-trainer").on("submit", function(e){
+        e.preventDefault();
+        var formdata = new FormData(this);
+        var csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val();
+        formdata.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
+        $.ajax({
+            type: 'POST',
+            url: 'add-trainer',
+            data: formdata,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+            const notyf = new Notyf({
+                position: {
+                    x: 'right',
+                    y: 'top',
+                },
+                types: [
+                    {
+                        type: 'error',
+                        background: '#198754',
+                        icon: {
+                            className: 'fas fa-times',
+                            tagName: 'span',
+                            color: '#fff'
+                        },
+                        dismissible: false
+                    }
+                ]
+            });
+            notyf.open({
+                type: 'error',
+                message: 'New Trainer Has Been Inserted'
+            });
+            }
+        });
+});
+</script>
+<script src="{% static 'admin/vendor/sweetalert2/dist/sweetalert2.all.min.js' %}"></script>
+{% include 'admin-footer.html' %}

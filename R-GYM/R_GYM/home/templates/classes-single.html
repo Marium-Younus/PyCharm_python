@@ -1,0 +1,181 @@
+{% load static %}
+{% include 'header.html' %}
+{% if fetch_class %}
+{% for class in fetch_class %}
+<!--=================================
+Page title -->
+<section class="page-title bg-holder bg-overlay-black-50" data-jarallax='{"speed": 0.6}' style="background-image: url(static/images/bg/06.jpg);">
+  <div class="container">
+    <div class="row position-relative">
+      <div class="col-12 text-center">
+          <h1 class="text-stroke-primary display-2 fw-bold text-uppercase">{{ class.class_name }} Timetable</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+Page title -->
+
+<!--=================================
+Classes single -->
+<section class="space-ptb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-lg-0 mb-5">
+        <div class="widget is-sticky">
+          <div class="mb-5">
+            <ul class="categorize list-unstyled">
+                <li><a class="active" href="#"><span>Private & Group Lessons</span></a></li>
+            </ul>
+          </div>
+           <div class="mt-5 p-5 bg-primary">
+            <h5 class="text-secondary">how can we help you?</h5>
+            <p>Most people believe that success is difficult.</p>
+            <p>If success is a process with a number of defined steps, then it is just like any other process. So, what is the first step in any process?</p>
+            <a class="btn btn-white mt-4 btn-skew" href="#"> <span>Contact</span> </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="mb-4 mb-sm-5">
+          <img class="img-fluid" src="{{ class.class_image.url }}" alt="{{ class.class_name }}">
+          <span class="text-muted mt-4 d-block mb-2">19/05/20 - 01:00pm - 03:00pm</span>
+          <h5>{{ class.class_name }}</h5>
+          <p>{{ class.class_description }}</p>
+            <h5>{{ class.class_name }} BENEFITS</h5>
+          <p>{{ class.class_benefits }}</p>
+          <div class="row">
+            <div class="col-12 mt-4">
+              <h5 class="mb-4">Class Schedule</h5>
+              <div class="row">
+                <div class="col-xl-2 col-lg-4 mb-3">
+                <div class="p-3 bg-light">
+                  <b>Monday <span class="d-block mt-3">07:00-08:00</span></b>
+                </div>
+                </div>
+                <div class="col-xl-2 col-lg-4 mb-3">
+                <div class="p-3 bg-light">
+                  <b>Tuesday <span class="d-block mt-3">08:00-09:00</span></b>
+                </div>
+                </div>
+                <div class="col-xl-2 col-lg-4 mb-3 mb-lg-0">
+                <div class="p-3 bg-light">
+                  <b>Wednesday <span class="d-block mt-3">09:00-10:00</span></b>
+                </div>
+                </div>
+                <div class="col-xl-2 col-lg-4 mb-3 mb-lg-0">
+                <div class="p-3 bg-light">
+                  <b>Thursday <span class="d-block mt-3">11:00-12:00</span></b>
+                </div>
+                </div>
+                 <div class="col-xl-2 col-lg-4 mb-3 mb-lg-0">
+                <div class="p-3 bg-light">
+                  <b>Friday <span class="d-block mt-3">12:00-01:00</span></b>
+                </div>
+                </div>
+                 <div class="col-xl-2 col-lg-4 mb-3 mb-lg-0">
+                <div class="p-3 bg-light">
+                  <b>Saturday <span class="d-block mt-3">01:00-02:00</span></b>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-xl-4 mt-lg-5 mt-5">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="mb-md-5 mb-4">
+                <img class="img-fluid" src="{% static 'images/icon/01.png' %}" alt="">
+                <h6 class="mt-4 mb-3">A Balanced Mind</h6>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="mb-md-5 mb-4">
+                <img class="img-fluid" src="{% static 'images/icon/02.png' %}" alt="">
+                <h6 class="mt-4 mb-3">Bring A Change</h6>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="mb-lg-5 mb-4 mb-md-5">
+                <img class="img-fluid" src="{% static 'images/icon/03.png' %}" alt="">
+                <h6 class="mt-4 mb-3">Revive And Relax</h6>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="mb-lg-0 mb-4">
+                <img class="img-fluid" src="{% static 'images/icon/04.png' %}" alt="">
+                <h6 class="mt-4 mb-3">For Your Inner Peace</h6>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="">
+                <img class="img-fluid" src="{% static 'images/icon/05.png' %}" alt="">
+                <h6 class="mt-4 mb-3">Calm Your Mind</h6>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="">
+                <img class="img-fluid" src="{% static 'images/icon/06.png' %}" alt="">
+                <h6 class="mt-4 mb-3">Stretch And Relax</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <h5>Try a choreo cult class</h5>
+          <p class="font-md mt-2">A Membership Advisor will contact you to confirm your class.</p>
+        </div>
+        <form class="row select-border gx-4">
+          <div class="mb-2 col-lg-6">
+            <input type="text" class="form-control" placeholder="Name">
+          </div>
+          <div class="mb-2 col-lg-6">
+            <input type="text" class="form-control" placeholder="Email">
+          </div>
+          <div class="mb-2 col-lg-6">
+            <input type="text" class="form-control" placeholder="Phone">
+          </div>
+          <div class="mb-2 col-lg-6">
+            <input type="text" class="form-control" placeholder="Your-address">
+          </div>
+          <div class="mb-3 col-12">
+            <textarea class="form-control" rows="3" placeholder="Message"></textarea>
+          </div>
+          <div class="mb-0 col-12">
+            <a class="btn btn-secondary" href="#"> <span> Submit </span> </a>
+          </div>
+        </form>
+        <div class="mt-5">
+          <h5 class="mb-4">Join in for a free workout</h5>
+          <div class="row">
+            <div class="col-12">
+             <div class="owl-carousel" data-animateOut="fadeOut" data-nav-arrow="false" data-items="2" data-md-items="2" data-sm-items="2" data-xs-items="2" data-xx-items="1" data-space="30">
+               {% if fetch_trainer %}
+               {% for trainer in fetch_trainer%}
+              <div class="item">
+                <div class="team">
+                  <div class="team-image">
+                      <img class="img-fluid" src="{{ trainer.trainer_image.url }}" alt="{{ trainer.trainer_name }}">
+                  </div>
+                  <div class="team-info">
+                  <div class="team-name">
+                    <h5 class="mb-0"><a href="trainers-single?trainer_id={{ trainer.trainer_id }}">{{ trainer.trainer_name }}</a></h5>
+                    <span class="font-md text-secondary">{{ trainer.trainer_speciality }}</span>
+                  </div>
+                  </div>
+                </div>
+              </div>
+               {% endfor %}
+               {% endif %}
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+ Classes single -->
+{% endfor %}
+{% endif%}
+{% include 'footer.html' %}

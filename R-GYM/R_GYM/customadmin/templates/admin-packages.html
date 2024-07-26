@@ -1,0 +1,155 @@
+{% load static %}
+{% include 'admin-header.html' %}
+    <div class="py-4">
+        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                <li class="breadcrumb-item"> <a href="#">
+                    <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                    </a> </li>
+                <li class="breadcrumb-item"><a href="#">Packages</a></li>
+                <li class="breadcrumb-item active" aria-current="page">All Packages</li>
+            </ol>
+        </nav>
+        <div class="d-flex justify-content-between">
+            <h1 class="h4">Packages</h1>
+            <div>
+                <button type="button" class="btn btn-block btn-gray-800" data-bs-toggle="modal" data-bs-target="#modal-default">Add Packages</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-xl-12">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="card border-0 shadow">
+
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th class="border-bottom" scope="col">ID</th>
+                                        <th class="border-bottom" scope="col">Packages Image</th>
+                                        <th class="border-bottom" scope="col">Packages Name</th>
+                                        <th class="border-bottom" scope="col">Packages Description</th>
+                                        <th class="border-bottom" scope="col">Packages Duration</th>
+                                        <th class="border-bottom" scope="col">Packages Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% if fetch_package %}
+                                {% for package in fetch_package %}
+                                    <tr>
+                                        <th class="text-gray-900" scope="row">{{package.package_id}}</th>
+                                        <td class="border-0"><img class="img-fluid" src="{{ package.package_image.url }}" alt="{{package.package_image}}" width="100" height="100"></td>
+                                        <td class="fw-bolder text-gray-500">{{package.package_name}}</td>
+                                        <td class="fw-bolder text-gray-500">{{package.package_description|truncatewords:10}}</td>
+                                        <td class="fw-bolder text-gray-500">{{package.package_duration}}</td>
+                                        <td class="fw-bolder text-gray-500">{{package.package_price}}</td>
+                                    </tr>
+                                {% endfor %}
+                                {% else %}
+                                <tr><td colspan="7">No Package Found</td></tr>
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="h6 modal-title">ADD Package</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" id="add-package" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <div class="modal-body">
+                    <div class="container">
+                            <div class="row py-2">
+                                <div class="col-md-6">
+                                    <label>Package Name</label>
+                                    <input type="text" class="form-control" name="package-name" id="package-name">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Package Duration</label>
+                                    <input type="text" class="form-control" name="package-duration" id="package-duration">
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-md-6">
+                                    <label>Package Price</label>
+                                    <input type="number" class="form-control" name="package-price" id="package-price">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Package Image</label>
+                                    <input class="form-control" type="file" name="package-image" id="package-image">
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-md-6">
+                                    <label>Package Specification</label>
+                                    <textarea class="form-control" cols="5" rows="5" name="package-specification" id="package-specification"></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Package Description</label>
+                                    <textarea class="form-control" cols="5" rows="5" name="package-description" id="package-description"></textarea>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-block btn-gray-800" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-secondary float-right" data-bs-toggle="modal">Add</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+$("#add-package").on("submit", function(e){
+        e.preventDefault();
+        var formdata = new FormData(this);
+        var csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val();
+        formdata.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
+        $.ajax({
+            type: 'POST',
+            url: 'add-package',
+            data: formdata,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+            const notyf = new Notyf({
+                position: {
+                    x: 'right',
+                    y: 'top',
+                },
+                types: [
+                    {
+                        type: 'error',
+                        background: '#198754',
+                        icon: {
+                            className: 'fas fa-times',
+                            tagName: 'span',
+                            color: '#fff'
+                        },
+                        dismissible: false
+                    }
+                ]
+            });
+            notyf.open({
+                type: 'error',
+                message: 'New Package Has Been Inserted'
+            });
+            }
+        });
+});
+</script>
+<script src="{% static 'admin/vendor/sweetalert2/dist/sweetalert2.all.min.js' %}"></script>
+{% include 'admin-footer.html' %}

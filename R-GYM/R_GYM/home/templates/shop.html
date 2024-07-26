@@ -1,0 +1,110 @@
+{% load static %}
+{% include 'header.html' %}
+
+    <!--=================================
+    Page title -->
+    <section class="page-title bg-holder bg-overlay-black-50" data-jarallax='{"speed": 0.6}' style="background-image: url(static/images/bg/06.jpg);">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center position-relative">
+            <h1 class="text-stroke-primary display-2 fw-bold text-uppercase">Shop</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=================================
+    Page title -->
+
+    <!--=================================
+    product -->
+    <section class="space-ptb">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="shop-sidebar">
+              <div class="widget">
+                <div class="widget-title">
+                  <h5>Categories</h5>
+                </div>
+                <div class="widget-categories">
+                  <ul class="list-unstyled list-style mb-0">
+                    {% if fetch_category %}
+                    {% for category in fetch_category%}
+                    <li><a href="#">{{ category.cat_name }}</a></li>
+                    {% endfor %}
+                    {% endif %}
+                  </ul>
+                </div>
+              </div>
+              <div class="widget">
+                <div class="widget-title">
+                  <h5>Follow on</h5>
+                </div>
+                <div class="social">
+                  <ul class="list-unstyled">
+                    <li><a href="#"> <i class="fab fa-facebook-f"></i> </a></li>
+                    <li><a href="#"> <i class="fab fa-instagram"></i> </a></li>
+                    <li><a href="#"> <i class="fab fa-twitter"></i> </a></li>
+                    <li><a href="#"> <i class="fab fa-dribbble"></i> </a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="widget">
+                <div class="widget-title">
+                  <h5>Tags</h5>
+                </div>
+                <div class="tagcloud">
+                  <ul class="list-unstyled">
+                    {% if fetch_product %}
+                    {% for product in fetch_product %}
+                    <li><a href="shop-single?product-id={{ product.product_id }}"> <span> {{ product.product_tag }} </span></a></li>
+                    {% endfor %}
+                    {% endif %}
+                  </ul>
+                </div>
+              </div>
+              <div class="bg-holder px-4 py-5 bg-overlay-theme-70" style="background-image: url(static/images/shop/siderbar-banner.jpg);">
+                <div class="position-relative">
+                  <span class="text-white">Accessories</span>
+                  <h2 class="text-secondary">SALE</h2>
+                  <a href="#" class="btn btn-secondary btn-sm mt-2"> <span> Click Here </span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9 mt-5 mt-lg-0">
+            <h5 class="mb-4">Product filters</h5>
+            <div class="row mt-4">
+              {% if fetch_product %}
+              {% for product in fetch_product %}
+              <div class="col-md-6 col-lg-4 col-sm-6 mb-5">
+                <div class="product">
+                  <div class="product-image">
+                    <img class="img-fluid mx-auto" src="{{ product.product_image.url }}" alt="{{ product.product_image }}">
+                    <div class="product-overlay">
+                      <div class="add-to-cart">
+                        <a href="shop-checkout?product-id={{ product.product_id }}"> <span> add to cart </span> </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-description">
+                    <div class="product-title">
+                      <a href="shop-single?product-id={{ product.product_id }}">{{ product.product_name }}</a>
+                    </div>
+                    <div class="product-price">
+                      <ins>${{ product.product_price }}</ins>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=================================
+    product -->
+
+{% include 'footer.html' %}

@@ -1,0 +1,754 @@
+{% load static %}
+{% include 'header.html' %}
+    <!--=================================banner -->
+    <section class="banner-home">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="swipeinner">
+              <div class="banner bg-holder bg-overlay-secondary-70" data-jarallax='{"speed": 0.6}' style="background-image: url(static/images/slider/12.jpg);">
+                <div class="container">
+                  <div class="row g-0">
+                    <div class="col-12 position-relative">
+                      <div class="banner-content">
+                        <h1 class="text-uppercase text-white banner-title" data-swiper-animation="fadeInUp" data-duration="1s" data-delay="0.4s">Be Fit, <span class="d-block text-stroke-primary">Live More</span></h1>
+                        <div data-swiper-animation="fadeInUp" data-duration="1s" data-delay="0.5s">
+                          <a class="btn btn-primary mt-3 ms-3 mt-lg-5 ms-lg-5 btn-skew" href="#"> <span> Join us</span></a>
+                        </div>
+                      </div>
+                      <div class="banner-image">
+                        <img class="img-fluid" src="{% static 'images/slider/11.png' %}" alt="">
+                      </div>
+                      <div class="banner-shape" data-swiper-animation="bounceIn" data-duration="1s" data-delay="1.5s">
+                        <img class="img-fluid" src="{% static 'images/slider/round-shape.png' %}" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="swipeinner">
+              <div class="banner bg-holder bg-overlay-secondary-70" data-jarallax='{"speed": 0.6}' style="background-image: url(static/images/slider/01.jpg);">
+                <div class="container">
+                  <div class="row g-0">
+                    <div class="col-12 position-relative">
+                      <div class="banner-content">
+                        <h1 class="text-uppercase text-white banner-title" data-swiper-animation="fadeInUp" data-duration="1s" data-delay="0.4s">Fight for, <span class="d-block text-stroke-primary">Fitness</span></h1>
+                        <div data-swiper-animation="fadeInUp" data-duration="1s" data-delay="0.5s">
+                          <a class="btn btn-primary mt-3 ms-3 mt-lg-5 ms-lg-5 btn-skew" href="#"> <span> Join us</span></a>
+                        </div>
+                      </div>
+                      <div class="banner-image">
+                        <img class="img-fluid" src="{% static 'images/slider/02.png' %}" alt="">
+                      </div>
+                      <div class="banner-shape" data-swiper-animation="bounceIn" data-duration="1s" data-delay="1.5s">
+                        <img class="img-fluid" src="{% static 'images/slider/round-shape.png' %}" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <!--=================================banner -->
+<!--=================================Classes -->
+<section class="space-ptb">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title">
+          <h2>Classes</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {% if fetch_class%}
+      {% for class in fetch_class %}
+      <div class="col-lg-4 col-sm-6">
+        <div class="classe-item mb-5">
+          <div class="classe-image">
+            {% if class.class_image %}
+            <img class="img-fluid" src="{{ class.class_image.url }}" alt="">
+            {% endif %}
+            <ul class="list-unstyled mb-0 classe-meta mt-4">
+              <li><a class="text-muted" href="#">19/05/20 - 06:00pm - 07:00pm</a></li>
+            </ul>
+          </div>
+          <div class="classe-title mt-4">
+            <h5><a href="classes-single?class-id={{ class.class_id }}">{{ class.class_name }}</a></h5>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      <p>No Data Found</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+<!--=================================Classes -->
+    <!--=================================About -->
+    <section class="bg-light bg-overlay-left">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 align-self-end mt-5 mt-md-0 position-relative">
+            <img class="img-fluid" src="{% static 'images/about/04.png' %}" alt="">
+          </div>
+          <div class="col-md-6 order-0 order-sm-2">
+            <div class="space-ptb">
+              <div class="section-title">
+                <span class="sub-title text-secondary"><span class="title-shape me-2"></span> About our company</span>
+                <h2>Who we are and what we do</h2>
+                <p class="pre-title">The first thing to remember about success is that it is a process – nothing more, nothing less. There is really no magic to it and it’s not reserved only for a select few people. As such, success really has nothing.</p>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="feature-box d-flex p-3 px-4 align-items-center mb-1 active">
+                    <i class="flaticon-treadmill-1 font-xxxl"></i>
+                    <h6 class="ms-4 mb-0">Modern equipment</h6>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="feature-box d-flex p-3 px-4 align-items-center mb-1">
+                    <i class="flaticon-tank-top font-xxxl"></i>
+                    <h6 class="ms-4 mb-0">Coaches champions</h6>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="feature-box d-flex p-3 px-4 align-items-center mb-1">
+                    <i class="flaticon-lotus font-xxxl"></i>
+                    <h6 class="ms-4 mb-0">The area of 7000 m2</h6>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="feature-box d-flex p-3 px-4 align-items-center mb-1">
+                    <i class="flaticon-wellness font-xxxl"></i>
+                    <h6 class="ms-4 mb-0">Parking for 160 spots</h6>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="feature-box d-flex p-3 px-4 align-items-center mb-1">
+                    <i class="flaticon-showers font-xxxl"></i>
+                    <h6 class="ms-4 mb-0">Swimming pools available</h6>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="feature-box d-flex p-3 px-4 align-items-center mb-1">
+                    <i class="flaticon-water font-xxxl"></i>
+                    <h6 class="ms-4 mb-0">Large bar with sports nutrition</h6>
+                  </div>
+                </div>
+                <div class="col-12 mt-3">
+                  <i><span class="text-secondary">There are basically six key</span> areas to higher achievement. Some people will tell you there are four while others may tell you there are eight.</i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=================================About -->
+    <!--=================================Classes -->
+    <section class="space-ptb bg-holder bg-overlay-black-70" data-jarallax='{"speed": 0.6}' style="background-image: url(images/bg/01.jpg);">
+      <div class="container mb-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="section-title text-center position-relative">
+              <span class="sub-title text-primary"><span class="title-shape me-2"></span> Class list by goals</span>
+              <h2 class="text-white">What is timetable for classes</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <ul class="nav nav-tabs nav-pills flex-column flex-sm-row mb-4" id="pills-tab" role="tablist">
+              <li class="nav-item flex-sm-fill text-center">
+                <a class="nav-link active" id="monday-tab" data-bs-toggle="pill" href="#monday" role="tab" aria-controls="monday" aria-selected="true"><span> Monday </span></a>
+              </li>
+              <li class="nav-item flex-sm-fill text-center">
+                <a class="nav-link" id="tuesday-tab" data-bs-toggle="pill" href="#tuesday" role="tab" aria-controls="tuesday" aria-selected="false"><span> Tuesday </span></a>
+              </li>
+              <li class="nav-item flex-sm-fill text-center">
+                <a class="nav-link" id="wednesday-tab" data-bs-toggle="pill" href="#wednesday" role="tab" aria-controls="wednesday" aria-selected="false"><span> Wednesday </span></a>
+              </li>
+              <li class="nav-item flex-sm-fill text-center">
+                <a class="nav-link" id="thursday-tab" data-bs-toggle="pill" href="#thursday" role="tab" aria-controls="thursday" aria-selected="false"><span> Thursday </span></a>
+              </li>
+              <li class="nav-item flex-sm-fill text-center">
+                <a class="nav-link" id="friday-tab" data-bs-toggle="pill" href="#friday" role="tab" aria-controls="friday" aria-selected="false"><span> Friday </span></a>
+              </li>
+              <li class="nav-item flex-sm-fill text-center">
+                <a class="nav-link" id="saturday-tab" data-bs-toggle="pill" href="#saturday" role="tab" aria-controls="saturday" aria-selected="false"><span> Saturday </span></a>
+              </li>
+              <li class="nav-item flex-sm-fill text-center">
+                <a class="nav-link" id="sunday-tab" data-bs-toggle="pill" href="#sunday" role="tab" aria-controls="sunday" aria-selected="false"><span> Sunday </span></a>
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show active" id="monday" role="tabpanel" aria-labelledby="monday-tab">
+                <div class="table-responsive">
+                  <table class="table table-borderless table-striped table-skew mb-0">
+                    <thead class="bg-white">
+                      <tr>
+                        <th>Time</th>
+                        <th>Class Type</th>
+                        <th>Coach Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% if fetch_table %}
+                    {% for time_table in fetch_table %}
+                      {% if time_table.timetable_day == "Monday" %}
+                    <tr class="bg-white">
+                        <td>{{ time_table.timetable_class }}</td>
+                        <td>{{ time_table.timetable_starttime }} - {{ time_table.timetable_endtime }}</td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img class="img-fluid avatar avatar-sm" src="{% static 'images/avatar/01.jpg' %}" alt="">
+                            <span class="ms-3 mb-0 pe-4">Paul Flavius</span>
+                          </div>
+                        </td>
+                      </tr>
+                      {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    <tr><td colspan="3"><p>No Data Found</p></td></tr>
+                    {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tuesday" role="tabpanel" aria-labelledby="tuesday-tab">
+                <div class="table-responsive">
+                  <table class="table table-borderless table-striped table-skew mb-0">
+                    <thead class="bg-white">
+                      <tr>
+                        <th>Time</th>
+                        <th>Class Type</th>
+                        <th>Coach Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% if fetch_table %}
+                    {% for time_table in fetch_table %}
+                      {% if time_table.timetable_day == "Tuesday" %}
+                    <tr class="bg-white">
+                        <td>{{ time_table.timetable_class }}</td>
+                        <td>{{ time_table.timetable_starttime }} - {{ time_table.timetable_endtime }}</td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img class="img-fluid avatar avatar-sm" src="{% static 'images/avatar/01.jpg' %}" alt="">
+                            <span class="ms-3 mb-0 pe-4">Paul Flavius</span>
+                          </div>
+                        </td>
+                      </tr>
+                      {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    <tr><td colspan="3"><p>No Data Found</p></td></tr>
+                    {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="wednesday" role="tabpanel" aria-labelledby="wednesday-tab">
+                <div class="table-responsive">
+                  <table class="table table-borderless table-striped table-skew mb-0">
+                    <thead class="bg-white">
+                      <tr>
+                        <th>Time</th>
+                        <th>Class Type</th>
+                        <th>Coach Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% if fetch_table %}
+                    {% for time_table in fetch_table %}
+                      {% if time_table.timetable_day == "Wednesday" %}
+                    <tr class="bg-white">
+                        <td>{{ time_table.timetable_class }}</td>
+                        <td>{{ time_table.timetable_starttime }} - {{ time_table.timetable_endtime }}</td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img class="img-fluid avatar avatar-sm" src="{% static 'images/avatar/01.jpg' %}" alt="">
+                            <span class="ms-3 mb-0 pe-4">Paul Flavius</span>
+                          </div>
+                        </td>
+                      </tr>
+                      {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    <tr><td colspan="3"><p>No Data Found</p></td></tr>
+                    {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="thursday" role="tabpanel" aria-labelledby="thursday-tab">
+                <div class="table-responsive">
+                  <table class="table table-borderless table-striped table-skew mb-0">
+                    <thead class="bg-white">
+                      <tr>
+                        <th>Time</th>
+                        <th>Class Type</th>
+                        <th>Coach Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% if fetch_table %}
+                    {% for time_table in fetch_table %}
+                      {% if time_table.timetable_day == "Thursday" %}
+                    <tr class="bg-white">
+                        <td>{{ time_table.timetable_class }}</td>
+                        <td>{{ time_table.timetable_starttime }} - {{ time_table.timetable_endtime }}</td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img class="img-fluid avatar avatar-sm" src="{% static 'images/avatar/01.jpg' %}" alt="">
+                            <span class="ms-3 mb-0 pe-4">Paul Flavius</span>
+                          </div>
+                        </td>
+                      </tr>
+                      {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    <tr><td colspan="3"><p>No Data Found</p></td></tr>
+                    {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="friday" role="tabpanel" aria-labelledby="friday-tab">
+                <div class="table-responsive">
+                  <table class="table table-borderless table-striped table-skew mb-0">
+                    <thead class="bg-white">
+                      <tr>
+                        <th>Time</th>
+                        <th>Class Type</th>
+                        <th>Coach Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% if fetch_table %}
+                    {% for time_table in fetch_table %}
+                      {% if time_table.timetable_day == "Friday" %}
+                    <tr class="bg-white">
+                        <td>{{ time_table.timetable_class }}</td>
+                        <td>{{ time_table.timetable_starttime }} - {{ time_table.timetable_endtime }}</td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img class="img-fluid avatar avatar-sm" src="{% static 'images/avatar/01.jpg' %}" alt="">
+                            <span class="ms-3 mb-0 pe-4">Paul Flavius</span>
+                          </div>
+                        </td>
+                      </tr>
+                      {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    <tr><td colspan="3"><p>No Data Found</p></td></tr>
+                    {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="saturday" role="tabpanel" aria-labelledby="saturday-tab">
+                <div class="table-responsive">
+                  <table class="table table-borderless table-striped table-skew mb-0">
+                    <thead class="bg-white">
+                      <tr>
+                        <th>Time</th>
+                        <th>Class Type</th>
+                        <th>Coach Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% if fetch_table %}
+                    {% for time_table in fetch_table %}
+                      {% if time_table.timetable_day == "Saturday" %}
+                    <tr class="bg-white">
+                        <td>{{ time_table.timetable_class }}</td>
+                        <td>{{ time_table.timetable_starttime }} - {{ time_table.timetable_endtime }}</td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img class="img-fluid avatar avatar-sm" src="{% static 'images/avatar/01.jpg' %}" alt="">
+                            <span class="ms-3 mb-0 pe-4">Paul Flavius</span>
+                          </div>
+                        </td>
+                      </tr>
+                      {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    <tr><td colspan="3"><p>No Data Found</p></td></tr>
+                    {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="sunday" role="tabpanel" aria-labelledby="sunday-tab">
+                <div class="table-responsive">
+                  <table class="table table-borderless table-striped table-skew mb-0">
+                    <thead class="bg-white">
+                      <tr>
+                        <th>Time</th>
+                        <th>Class Type</th>
+                        <th>Coach Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% if fetch_table %}
+                    {% for time_table in fetch_table %}
+                      {% if time_table.timetable_day == "Sunday" %}
+                    <tr class="bg-white">
+                        <td>{{ time_table.timetable_class }}</td>
+                        <td>{{ time_table.timetable_starttime }} - {{ time_table.timetable_endtime }}</td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img class="img-fluid avatar avatar-sm" src="{% static 'images/avatar/01.jpg' %}" alt="">
+                            <span class="ms-3 mb-0 pe-4">Paul Flavius</span>
+                          </div>
+                        </td>
+                      </tr>
+                      {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    <tr><td colspan="3"><p>No Data Found</p></td></tr>
+                    {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=================================Classes -->
+    <!--=================================BMI -->
+    <section class="position-relative z-index-1 bmi-form">
+      <div class="container">
+        <div class="row g-0">
+          <div class="col-lg-6 half-overlay-left">
+            <div class="space-ptb h-100 mt-lg-n5 position-relative z-index-1">
+              <div class="section-title">
+                <span class="sub-title text-secondary"><span class="title-shape me-2"></span> Calculate BMI</span>
+                <h2>What Is BMI?</h2>
+              </div>
+              <div class="row">
+                <div class="col-lg-4">
+                  <h6>Height:</h6>
+                  <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Feet">
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Inc">
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Cms">
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <h6>Weight:</h6>
+                  <div class="mb-3">
+                    <select class="form-control basic-select">
+                      <option>Type</option>
+                      <option>Underweight</option>
+                      <option>Normal</option>
+                      <option>Overweight</option>
+                      <option>Obese</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <select class="form-control basic-select">
+                      <option>Kilograms</option>
+                      <option>gram</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <a class="btn btn-secondary" href="#">Calculate</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 half-overlay-right">
+            <div class="space-ptb">
+              <div class="ms-lg-5 ps-lg-4 mt-3 mt-lg-5">
+                <table class="table table-borderless table-skew">
+                  <thead>
+                    <tr class="bg-white-soft">
+                      <th class="text-primary">BMI range - kg/m2</th>
+                      <th class="text-primary">Weight Status </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="bg-transparent">
+                      <td class="text-white">Below 10.2</td>
+                      <td class="text-white">Severe Thinness  </td>
+                    </tr>
+                    <tr class="bg-white-soft">
+                      <td class="text-white">10.0 - 20.5</td>
+                      <td class="text-white">Moderate Thinness  </td>
+                    </tr>
+                    <tr class="bg-transparent">
+                      <td class="text-white">20.5 - 26.2</td>
+                      <td class="text-white">Mild Thinness  </td>
+                    </tr>
+                    <tr class="bg-white-soft">
+                      <td class="text-white">40.0 - and Above</td>
+                      <td class="text-white">Normal</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <h6 class="text-white text-center mt-5 position-relative">This BMI calculator is for informational purposes only.</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="position-absolute left-0 bottom-0 ms-5 d-none d-lg-block">
+        <img class="img-fluid" src="{% static 'images/about/05.png' %}" alt="">
+      </div>
+    </section>
+    <!--=================================BMI -->
+    <!--=================================Trainers -->
+    <section class="space-ptb">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10">
+            <div class="section-title">
+              <span class="sub-title text-secondary"><span class="title-shape me-2"></span> Train with experts</span>
+              <h2>Meet the magnificent Trainers</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid p-0">
+        <div class="row g-0">
+          <div class="col-12">
+            <div class="owl-carousel" data-animateOut="fadeOut" data-nav-arrow="false" data-items="4" data-md-items="4" data-sm-items="3" data-xs-items="2" data-xx-items="1" data-space="0">
+              {% if fetch_trainer %}
+              {% for trainer in fetch_trainer%}
+              <div class="item">
+                <div class="team">
+                  <div class="team-image">
+                    {% if trainer.trainer_image %}
+                      <img class="img-fluid" src="{{ trainer.trainer_image.url }}" alt="{{ trainer.trainer_image }}">
+                    {% endif %}
+                  </div>
+                  <div class="team-info">
+                  <div class="team-name">
+                    <h5 class="mb-0"><a href="#">{{ trainer.trainer_name }}</a></h5>
+                    <span class="font-md text-secondary">{{ trainer.trainer_speciality }}</span>
+                  </div>
+                  <div class="share">
+                    <a class="share-icon" href="#"><i class="fas fa-share-alt"></i></a>
+                    <ul class="list-unstyled share-box">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                    </ul>
+                  </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=================================Trainers -->
+    <!--=================================Pricing -->
+    <section class="space-ptb bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="section-title text-center">
+              <span class="sub-title text-secondary"><span class="title-shape me-2"></span> Train Our pricing</span>
+              <h2>A plan for every price</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          {% if fetch_package %}
+          {% for package in fetch_package %}
+          <div class="col-md-4 mb-md-0 mb-4">
+            <div class="pricing bg-white p-4 p-lg-5">
+              <div class="text-center">
+                <h5 class="pricing-title text-uppercase mb-3">{{ package.package_name }}</h5>
+                <p>Positive pleasure-oriented goals are much more powerful.</p>
+                <span class="pricing-price d-block mb-4 mt-3"><strong class="display-4 fw-bold text-dark">${{ package.package_price }}</strong>/{{ package.package_duration }}</span>
+              </div>
+              <ul class="list-unstyled pricing-list mb-4">
+                <li class="d-flex text-dark mb-3">Cardio <i class="ms-auto fas fa-check text-success font-md"></i> </li>
+                <li class="d-flex text-dark mb-3">Swimming Pool <i class="ms-auto fas fa-times text-danger font-md"></i> </li>
+                <li class="d-flex text-dark mb-3">Gym <i class="ms-auto fas fa-times text-danger font-md"></i> </li>
+                <li class="d-flex text-dark mb-3">Group Lessons <i class="ms-auto fas fa-times text-danger font-md"></i> </li>
+                <li class="d-flex text-dark mb-3">Aerobics <i class="ms-auto fas fa-check text-success font-md"></i> </li>
+                <li class="d-flex text-dark">Crossfit <i class="ms-auto fas fa-check text-success font-md"></i> </li>
+              </ul>
+              <div class="d-grid">
+                <a class="btn btn-outline-secondary btn-skew" href="#" data-bs-toggle="modal" data-bs-target="#pricingModal" ><span>Become A Member</span></a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </section>
+    <!--=================================Pricing -->
+    <!--=================================Modal Pricing -->
+    <div class="modal login fade" id="pricingModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="loginModalLabel">Buy MemberShip</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <ul class="nav nav-tabs nav-tabs-02 justify-content-center" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="login-tab" data-bs-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="false"> <span> VISA Card</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="register-tab" data-bs-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="true"><span>Paypal</span></a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                <form class="row mt-2 align-items-center">
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Name on Card">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Enter Card Number (0000 0000 0000 0000)">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <input type="Password" class="form-control" placeholder="Enter Expiration Date (MM/YY)">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Enter CVV (123)">
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="d-grid">
+                      <button type="submit" class="btn btn-primary">Buy Now</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                <form class="row mt-2 align-items-center">
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Enter First Name">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Enter Last Name">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <input type="Password" class="form-control" placeholder="Enter Email">
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="d-grid">
+                      <button type="submit" class="btn btn-primary">Buy Now</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--=================================Modal Pricing -->
+    <!--=================================Testimonial -->
+    <section class="space-ptb bg-holder bg-overlay-black-80" data-jarallax='{"speed": 0.6}' style="background-image: url(images/bg/02.jpg);">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 position-relative">
+            <div class="owl-carousel" data-animateOut="fadeOut" data-nav-arrow="true" data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="0">
+              <div class="item">
+                <div class="testimonial text-center">
+                  <div class="testimonial-quote position-absolute ms-5 ps-5 mt-4">
+                    <i class="flaticon-left-quote font-xxxl text-primary-soft"></i>
+                  </div>
+                   <div class="testimonial-image mb-5">
+                      <img class="img-fluid avatar avatar-xl rounded-circle mx-auto" src="{% static 'images/avatar/01.jpg' %}" alt="">
+                   </div>
+                    <div class="testimonial-dec">
+                      <i class="text-white h3">We've seen amazing results already. Since I invested in LUVFIT I made over 100,000 dollars profits. It's the perfect solution for our business. I was amazed at the quality of LUVFIT.</i>
+                    </div>
+                    <div class="testimonial-author mt-5">
+                      <h6 class="text-secondary">- Anny B.</h6>
+                      <span class="text-white">Fitness Trainer</span>
+                    </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimonial text-center">
+                  <div class="testimonial-quote position-absolute ms-5 ps-5 mt-4">
+                    <i class="flaticon-left-quote font-xxxl text-primary-soft"></i>
+                  </div>
+                   <div class="testimonial-image mb-5">
+                      <img class="img-fluid avatar avatar-xl rounded-circle mx-auto" src="{% static 'images/avatar/02.jpg' %}" alt="">
+                   </div>
+                    <div class="testimonial-dec">
+                      <i class="text-white h3">I love your system. Nice work on your LUVFIT. Great job, I will definitely be ordering again! I would like to personally thank you for your outstanding product.</i>
+                    </div>
+                    <div class="testimonial-author mt-5">
+                      <h6 class="text-secondary">- Gertrud Z.</h6>
+                      <span class="text-white">Yoga Trainer</span>
+                    </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimonial text-center">
+                  <div class="testimonial-quote position-absolute ms-5 ps-5 mt-4">
+                    <i class="flaticon-left-quote font-xxxl text-primary-soft"></i>
+                  </div>
+                   <div class="testimonial-image mb-5">
+                      <img class="img-fluid avatar avatar-xl rounded-circle mx-auto" src="{% static 'images/avatar/03.jpg' %}" alt="">
+                   </div>
+                    <div class="testimonial-dec">
+                      <i class="text-white h3">We were treated like royalty. Needless to say we are extremely satisfied with the results. Thank you for making it painless, pleasant and most of all hassle free! It fits our needs perfectly.</i>
+                    </div>
+                    <div class="testimonial-author mt-5">
+                      <h6 class="text-secondary">- Josepha N.</h6>
+                      <span class="text-white">Personal Trainer</span>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=================================Testimonial -->
+    <!--=================================Offer -->
+    <section class="space-ptb bg-secondary">
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+             <img class="img-fluid" src="{% static 'images/about/06.png' %}" alt="">
+          </div>
+          <div class="col-lg-6">
+            <div class="section-title">
+              <h2 class="text-white">Fitness classes this winter. <span class="tex-primary">get upto 20% discount on your membership </span></h2>
+              <p class="text-white mt-3 font-md">What drives me? The thing that drives me most is the desire to find my limits–and extend them.</p>
+            </div>
+            <a class="btn btn-primary btn-skew" href="#"> <span> Become a member</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=================================Offer -->
+
+{% include 'footer.html' %}

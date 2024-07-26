@@ -1,0 +1,61 @@
+{% load static %}
+{% include 'header.html' %}
+
+<!--=================================
+Page title -->
+<section class="page-title bg-holder bg-overlay-black-50" data-jarallax='{"speed": 0.6}' style="background-image: url(static/images/bg/11.jpg);">
+  <div class="container">
+    <div class="row position-relative">
+      <div class="col-12 text-center">
+          <h1 class="text-stroke-primary display-2 fw-bold text-uppercase">Our Trainers</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Our Trainers</li>
+            </ol>
+          </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+Page title -->
+
+ <!--=================================
+Trainers -->
+<section class="space-ptb">
+  <div class="container">
+    {% if fetch_trainer%}
+    {% for trainer in fetch_trainer%}
+    <div class="row mb-5">
+      <div class="col-lg-4 col-md-6">
+        <div class="team">
+          <div class="team-image">
+            <img class="img-fluid w-100" src="{{ trainer.trainer_image.url }}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 align-self-center  mt-4 mt-md-0">
+        <div class="team-name">
+          <h5 class="mb-0"><a href="#">{{ trainer.trainer_name }}</a></h5>
+          <span class="font-md text-secondary">{{ trainer.trainer_type }}</span><br/>
+          <span class="font-md text-secondary">{{ trainer.trainer_speciality }}</span>
+          <p class="mt-4">{{ trainer.trainer_description|truncatewords:100 }}</p>
+          <a class="btn btn-secondary" href="trainers-single?trainer_id={{ trainer.trainer_id }}"><span>View Trainer Details</span></a>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-4 mt-lg-0">
+        <h5 class="mb-4">Youtube video</h5>
+        <iframe height="315" src="https://www.youtube.com/embed/uRTLaKE4JTA" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+    <hr class="hr-dark mb-5">
+    {% endfor %}
+    {% endif %}
+  </div>
+</section>
+<!--=================================
+ Trainers -->
+
+
+{% include 'footer.html' %}

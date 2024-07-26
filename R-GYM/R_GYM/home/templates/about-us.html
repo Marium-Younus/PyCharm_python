@@ -1,0 +1,271 @@
+{% load static %}
+{% include 'header.html' %}
+
+<!--=================================
+Page title -->
+<section class="page-title bg-holder bg-overlay-black-50" data-jarallax='{"speed": 0.6}' style="background-image: url(static/images/bg/06.jpg);">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center position-relative">
+        <h1 class="text-stroke-primary display-2 fw-bold text-uppercase">About Us</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">About Us</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+Page title -->
+
+<!--=================================
+About -->
+<section class="space-ptb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mb-4 mb-md-5 mb-lg-0">
+        <div class="section-title">
+          <span class="sub-title text-secondary"><span class="title-shape me-2"></span>About Us</span>
+          <h2>Who we are and what we do</h2>
+          <p class="font-md mt-4">For those of you who are serious about having more, doing more, giving more and being more, success is achievable with some understanding of what to do, some discipline around planning and execution of those plans and belief that you can achieve your desires.</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="feature-box d-flex p-3 px-4 align-items-center mb-3 active">
+              <i class="far fa-bell font-xxl"></i>
+              <h6 class="ms-3 mb-0">Hustle to gain more muscle</h6>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="feature-box d-flex p-3 px-4 align-items-center mb-3">
+              <i class="far fa-bell font-xxl"></i>
+              <h6 class="ms-3 mb-0">Parking for 160 spots</h6>
+            </div>
+          </div>
+        </div>
+        <hr class="hr-dark mb-3">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="counter counter-02 mt-3">
+              <div class="counter-content">
+                <span class="timer mb-1" data-to="4561" data-speed="10000">4561</span>
+                <label class="mb-0">Beauty professionals</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="counter counter-02 mt-3">
+              <div class="counter-content">
+                <span class="timer mb-1" data-to="3256" data-speed="10000">3256</span>
+                <label class="mb-0">Cities Nationwide</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="counter counter-02 mt-3">
+              <div class="counter-content">
+                <span class="timer mb-1" data-to="2564" data-speed="10000">2564</span>
+                <label class="mb-0">GMY Branches</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="our-since">
+          <div class="row">
+          </div>
+          <img class="img-fluid mb-4 w-100" src="{% static 'images/about/08.jpg' %}" alt="">
+          <div class="row mt-n5 justify-content-lg-end me-lg-5">
+            <div class="col-xl-7 col-lg-9 col-md-7 mt-md-n5">
+              <div class="bg-secondary p-4 mt-lg-n5 ms-md-5 mt-md-0 mt-5">
+                <span class="text-white font-xl">We’ve come a long way since </span>
+                <h2 class="text-white mt-3 font-xlll">2002</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+ About -->
+
+ <!--=================================
+Trainers -->
+<section class="space-pb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10">
+        <div class="section-title">
+          <span class="sub-title text-secondary"><span class="title-shape me-2"></span>Train with experts</span>
+          <h2>Meet the outstanding Trainers</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid p-0">
+    <div class="row g-0">
+      <div class="col-12">
+        <div class="owl-carousel" data-animateOut="fadeOut" data-nav-arrow="false" data-items="4" data-md-items="3" data-sm-items="3" data-xs-items="2" data-xx-items="1" data-space="0">
+          {% if fetch_trainer %}
+          {% for trainer in fetch_trainer%}
+          <div class="item">
+            <div class="team">
+              <div class="team-image">
+                <img class="img-fluid" src="{{ trainer.trainer_image.url }}" alt="{{ trainer.trainer_image }}">
+              </div>
+              <div class="team-info">
+                <div class="team-name">
+                  <h5 class="mb-0"><a href="trainers-single?trainer_id={{ trainer.trainer_id }}">{{ trainer.trainer_name }}</a></h5>
+                  <span class="font-md text-secondary">{{ trainer.trainer_speciality }}</span>
+                </div>
+                <div class="share">
+                  <a class="share-icon" href="#"><i class="fas fa-share-alt"></i></a>
+                  <ul class="list-unstyled share-box">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+ Trainers -->
+
+ <!--=================================
+skills -->
+<section class="space-pb">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-5 mb-md-0">
+        <div class="section-title">
+          <span class="sub-title text-secondary"><span class="title-shape me-2"></span> Our skills</span>
+          <h2>We’re Professional And We Love What We Do</h2>
+          <p class="font-md mt-3">Success isn’t really that difficult. There is a significant portion of the population here in North America, that actually want and need success to be hard! Why? So they then have a built-in excuse when things don’t go their way! Pretty sad situation, to say the least.</p>
+        </div>
+        <a class="btn btn-primary btn-skew" href="#"> <span> Read more</span></a>
+      </div>
+      <div class="col-md-6">
+        <div class="progress-item mb-4">
+          <div class="d-flex mb-2">
+            <div>Trainer</div>
+            <span class="ms-auto ">70%</span>
+          </div>
+          <div class="progress" style="height: 7px;">
+            <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        <div class="progress-item mb-4">
+          <div class="d-flex mb-2">
+            <div>Leadership</div>
+            <span class="ms-auto ">65%</span>
+          </div>
+          <div class="progress" style="height: 7px;">
+            <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        <div class="progress-item mb-4">
+          <div class="d-flex mb-2">
+            <div>Planning</div>
+            <span class="ms-auto ">88%</span>
+          </div>
+          <div class="progress" style="height: 7px;">
+            <div class="progress-bar" role="progressbar" style="width: 88%;" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="d-flex mb-2">
+            <div>Process </div>
+            <span class="ms-auto ">78%</span>
+          </div>
+          <div class="progress" style="height: 7px;">
+            <div class="progress-bar" role="progressbar" style="width: 78%;" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+skills -->
+
+ <!--=================================
+Testimonial -->
+<section class="space-ptb bg-light position-relative">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10">
+        <div class="owl-carousel" data-animateOut="fadeOut" data-nav-arrow="false" data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="0">
+          <div class="item">
+            <div class="testimonial p-0">
+              <div class="row ">
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                  <div class="testimonial-image">
+                    <img class="img-fluid" src="{% static 'images/testimonial/01.pn' %}g" alt="">
+                  </div>
+                </div>
+                <div class="col-lg-8">
+                  <div class="testimonial-quote mb-4">
+                    <i class="fas fa-quote-right font-xxxl text-primary-soft"></i>
+                  </div>
+                  <div class="testimonial-dec">
+                    <i class="h4">I would gladly pay over 600 dollars for Potenza. Since I invested in Potenza I made over 100,000 dollars profits. Your company is truly upstanding and is behind its product 100%.</i>
+                  </div>
+                  <div class="testimonial-author mt-5">
+                    <h6 class="text-primary mb-1">- Anny B.</h6>
+                    <span>Fitness Trainer</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial p-0">
+              <div class="row">
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                  <div class="testimonial-image">
+                    <img class="img-fluid" src="{% static 'images/testimonial/02.png' %}" alt="">
+                  </div>
+                </div>
+                <div class="col-lg-8">
+                  <div class="testimonial-quote mb-4">
+                    <i class="fas fa-quote-right font-xxxl text-primary-soft"></i>
+                  </div>
+                  <div class="testimonial-dec">
+                    <i class="h4">We were treated like royalty. Needless to say we are extremely satisfied with the results. Thank you for making it painless, pleasant and most of all hassle free! It fits our needs perfectly.</i>
+                  </div>
+                  <div class="testimonial-author mt-5">
+                    <h6 class="text-primary mb-1">- Gertrud Z.</h6>
+                    <span>Yoga Trainer</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="position-absolute right-0 bottom-0 mb-n5">
+    <img class="img-fluid d-none d-lg-block" src="{% static 'images/about/07.png' %}" alt="">
+  </div>
+</section>
+<!--=================================
+Testimonial -->
+
+{% include 'footer.html' %}

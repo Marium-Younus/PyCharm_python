@@ -1,0 +1,295 @@
+{% load static %}
+{% include 'header.html' %}
+
+  <!--=================================
+  Page title -->
+  <section class="page-title bg-holder bg-overlay-black-50" data-jarallax='{"speed": 0.6}' style="background-image: url(static/images/bg/06.jpg);">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center position-relative">
+          <h1 class="text-stroke-primary display-2 fw-bold text-uppercase">Shop checkout</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Shop checkout</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--=================================
+  Page title -->
+
+  <!--=================================
+  Checkout -->
+<form action="thank-you" method="post">
+  {% csrf_token %}
+  <section class="space-ptb">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="checkout-info mb-4 mb-md-5">
+            <p class="mb-0"><strong>Returning customer?</strong> <a class="text-secondary" href="login.html">Click here to login</a></p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="checkout-info-coupon mb-4 mb-md-5">
+            <p class="checkout-info"><strong>Have a coupon?</strong>
+              <a class="text-secondary" data-bs-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse">
+                Click here to enter your code
+              </a>
+            </p>
+            <div class="collapse" id="collapse">
+              <div class="checkout-coupon">
+                <p>If you have a coupon code, please apply it below.</p>
+                <form class="row">
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" id="coupon_code" placeholder="Coupon code">
+                  </div>
+                </form>
+                <a href="#" class="btn btn-primary"> <span> Apply coupon</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="checkout">
+            <div class="section-title">
+              <h3 class="title">Billing details</h3>
+            </div>
+              <div class="mb-3 col-sm-12">
+                <label class="form-label">First name</label>
+                <input type="text" class="form-control" placeholder="" name="fn">
+              </div>
+              <div class="mb-3 col-sm-12">
+                <label class="form-label">Last name</label>
+                <input type="text" class="form-control" placeholder="" name="ln">
+              </div>
+              <div class="mb-3 select-border col-sm-12">
+                <label class="form-label">Country</label>
+                <select class="form-control basic-select" name="country">
+                  <option value="value 01" selected="selected">Armenia</option>
+                  <option value="AR">Argentina</option>
+                  <option value="AM">Armenia</option>
+                  <option value="AW">Aruba</option>
+                  <option value="AU">Australia</option>
+                  <option value="BS">Bahamas</option>
+                  <option value="BH">Bahrain</option>
+                  <option value="BD">Bangladesh</option>
+                  <option value="BB">Barbados</option>
+                  <option value="KH">Cambodia</option>
+                  <option value="CM">Cameroon</option>
+                  <option value="CA">Canada</option>
+                  <option value="DK">Denmark</option>
+                  <option value="DJ">Djibouti</option>
+                  <option value="DM">Dominica</option>
+                  <option value="ER">Eritrea</option>
+                  <option value="EE">Estonia</option>
+                  <option value="ET">Ethiopia</option>
+                  <option value="FJ">Fiji</option>
+                  <option value="FI">Finland</option>
+                  <option value="FR">France</option>
+                  <option value="GA">Gabon</option>
+                  <option value="GM">Gambia</option>
+                  <option value="GE">Georgia</option>
+                  <option value="HT">Haiti</option>
+                  <option value="HK">Hong Kong</option>
+                  <option value="HU">Hungary</option>
+                  <option value="IS">Iceland</option>
+                  <option value="IN">India</option>
+                  <option value="ID">Indonesia</option>
+                  <option value="JP">Japan</option>
+                  <option value="JE">Jersey</option>
+                  <option value="JO">Jordan</option>
+                  <option value="KZ">Kazakhstan</option>
+                  <option value="KE">Kenya</option>
+                  <option value="KI">Kiribati</option>
+                  <option value="LV">Latvia</option>
+                  <option value="LB">Lebanon</option>
+                  <option value="LS">Lesotho</option>
+                  <option value="MG">Madagascar</option>
+                  <option value="MW">Malawi</option>
+                  <option value="MY">Malaysia</option>
+                  <option value="NA">Namibia</option>
+                  <option value="NR">Nauru</option>
+                  <option value="NP">Nepal</option>
+                  <option value="OM">Oman</option>
+                  <option value="PK">Pakistan</option>
+                  <option value="PW">Palau</option>
+                  <option value="PE">Peru</option>
+                  <option value="QA">Qatar</option>
+                  <option value="RE">Réunion</option>
+                  <option value="RO">Romania</option>
+                  <option value="RW">Rwanda</option>
+                  <option value="LC">Saint Lucia</option>
+                  <option value="WS">Samoa</option>
+                  <option value="SM">San Marino</option>
+                  <option value="TH">Thailand</option>
+                  <option value="TL">Timor-Leste</option>
+                  <option value="TG">Togo</option>
+                  <option value="UG">Uganda</option>
+                  <option value="UA">Ukraine</option>
+                  <option value="UY">Uruguay</option>
+                  <option value="VU">Vanuatu</option>
+                  <option value="VN">Viet Nam</option>
+                  <option value="EH">Western Sahara</option>
+                  <option value="YE">Yemen</option>
+                  <option value="ZM">Zambia</option>
+                  <option value="ZW">Zimbabwe</option>
+                </select>
+              </div>
+              <div class="mb-3 col-sm-12">
+                <label class="form-label">Shipping Address</label>
+                <input type="text" class="form-control" placeholder="House number and street name" name="address">
+              </div>
+              <div class="mb-3 col-sm-12">
+                <label class="form-label">ZIP</label>
+                <input type="text" class="form-control" placeholder="" name="zip-code">
+              </div>
+              <div class="mb-3 col-sm-12">
+                <label class="form-label">Phone</label>
+                <input type="text" class="form-control" placeholder="" name="phone-number">
+              </div>
+              <div class="mb-3 col-sm-12 mb-0">
+                <label class="form-label">Email Address:</label>
+                <input type="email" class="form-control" placeholder="" name="email">
+              </div>
+              {% if fetch_product %}
+              {% for product in fetch_product %}
+              <input type="hidden" name="product_id" value="{{ product.product_id }}">
+              <input type="hidden" name="product_name" value="{{ product.product_name }}">
+              <input type="hidden" name="total" value="{{ product.product_price|add:'10'|floatformat:2 }}">
+              <input type="hidden" name="status" value="Pending">
+              {% endfor %}
+              {% endif %}
+          </div>
+        </div>
+        <div class="col-md-6 mt-5 mt-md-0">
+          <div class="section-title">
+            <h3 class="title">Your order</h3>
+          </div>
+          <div class="checkout-review">
+            <div class="table-responsive">
+              {% if fetch_product %}
+              {% for product in fetch_product %}
+              <table class="table cart">
+                <tbody>
+                  <tr>
+                    <th class="border-top-0 product-name" scope="row">Product</th>
+                    <th class="border-top-0 product-total" scope="row">Subtotal</th>
+                  </tr>
+                  <tr>
+                    <td> {{ product.product_name }} </td>
+                    <td> ${{ product.product_price }} </td>
+                  </tr>
+                  <tr>
+                    <th class="product-name" scope="row">Subtotal</th>
+                    <td class="product-total amount"><strong> ${{ product.product_price }} </strong></td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th class="shipping">Shipping</th>
+                  <td>$10</td>
+                </tr>
+                <tr>
+                  <th class="product-total" scope="row">Total</th>
+                  <td class="product-total amount"><strong> ${{ product.product_price|add:'10'|floatformat:2 }} </strong></td>
+                </tr>
+                </tfoot>
+              </table>
+              {% endfor %}
+              {% endif %}
+            </div>
+            <div class="accordion accordion-02 mb-3" id="accordion-faq">
+              <div class="card">
+                <div class="accordion-icon card-header" id="headingOne">
+                  <h6 class="mb-0">
+                  <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Direct bank transfer
+                  </button>
+                  </h6>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion-faq">
+                  <div class="card-body">
+                    <form class="row mt-2 align-items-center">
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Name on Card">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Enter Card Number (0000 0000 0000 0000)">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <input type="Password" class="form-control" placeholder="Enter Expiration Date (MM/YY)">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Enter CVV (123)">
+                  </div>
+                </form>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="accordion-icon card-header" id="headingthree">
+                  <h6 class="mb-0">
+                  <button class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsethree" aria-expanded="false" aria-controls="collapsethree">
+                  Cash on delivery
+                  </button>
+                  </h6>
+                </div>
+                <div id="collapsethree" class="collapse" aria-labelledby="headingthree" data-bs-parent="#accordion-faq">
+                  <div class="card-body">
+                    <table>
+                      <tr>
+                  <th>
+                    <input type="checkbox">
+                    <label>Cash on Delivery</label></th>
+                  <td>$10</td>
+                </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="accordion-icon card-header" id="headingfor">
+                  <h6 class="mb-0">
+                  <button class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefor" aria-expanded="false" aria-controls="collapsefor">
+                  PayPal
+                  </button>
+                  </h6>
+                </div>
+                <div id="collapsefor" class="collapse" aria-labelledby="headingfor" data-bs-parent="#accordion-faq">
+                  <form class="row mt-2 align-items-center">
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Enter First Name">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Enter Last Name">
+                  </div>
+                  <div class="mb-3 col-sm-12">
+                    <input type="Password" class="form-control" placeholder="Enter Email">
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary btn-lg">
+                <span> Place Order </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--=================================Checkout -->
+  </form>
+
+{% include 'footer.html' %}

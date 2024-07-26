@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title>E-Library</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+     <link rel="icon" href="{% static 'images/online-library.png' %}">
+  </head>
+  <body>
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	    	<a class="navbar-brand" href="h">E-<span>Library</span></a>
+
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav m-auto">
+	         <li class="nav-item"><a href="h" class="nav-link">Home</a></li>
+
+	            <li class="nav-item"><a href="c" class="nav-link">Contact</a></li>
+                {% if session_user %}
+                <li class="nav-item"><a href="v" class="nav-link">Videos</a></li>
+	            <li class="nav-item"><a href="b" class="nav-link">Books</a></li>
+
+             <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+                <li class="nav-item"><a href="" class="nav-link">{{session_user}}</a></li>
+                {% else %}
+
+				<li class="nav-item"><a href="r" class="nav-link">Registration</a></li>
+				<li class="nav-item"><a href="l" class="nav-link">Login</a></li>
+                {% endif %}
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+
+    <div class="hero-wrap">
+	    <div class="home-slider owl-carousel">
+	      <div class="slider-item" style="background-image:url({% static 'images/bg.png' %}); height: 550px">
+	      	<div class="overlay"></div>
+	        <div class="container">
+	          <div class="row no-gutters slider-text align-items-center justify-content-center">
+		          <div class="col-md-10 ftco-animate">
+		          	<div class="text w-100 text-center">
+		      
+		            </div>
+		          </div>
+		        </div>
+	        </div>
+	      </div>
+
+	      <div class="slider-item" style="background-image:url({% static 'images/bg_2.png' %}); height: 550px">
+	      	<div class="overlay"></div>
+	        <div class="container">
+	          <div class="row no-gutters slider-text align-items-center justify-content-center">
+		          <div class="col-md-10 ftco-animate">
+		          	<div class="text w-100 text-center">
+		          	
+		            </div>
+		          </div>
+		        </div>
+	        </div>
+	      </div>
+
+	      <div class="slider-item" style="background-image:url({% static 'images/bg_3.png' %}); height: 550px">
+	      	<div class="overlay"></div>
+	        <div class="container">
+	          <div class="row no-gutters slider-text align-items-center justify-content-center">
+		          <div class="col-md-10 ftco-animate">
+		          	<div class="text w-100 text-center">
+		          
+		            </div>
+		          </div>
+		        </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+		
+	
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row justify-content-center pb-5 mb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h2>We can help you in different situations</h2>
+            <span class="subheading">We offer Services</span>
+          </div>
+        </div>
+    		<div class="row">
+          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
+            <div class="d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-goal"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Success</h3>
+                <p>Strive not to be a success, but rather to be of value Work hard in silence, let your success be your noise😇</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
+            <div class="d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-stress"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Read Books</h3>
+                <p>A reader lives a thousand lives before he dies Until I feared I would lose it, I never loved to read📚</p>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
+            <div class="d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-marriage"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Video Tutorial</h3>
+                <p>Online education is like a rising tide, it's going to lift all boats learning is not the next big thing, it is the now big thing🌟</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
+            <div class="d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-crm"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Contact Us</h3>
+                <p>We’re here to help and answer any question you might have. We look forward to hearing from you🙂</p>
+              </div>
+            </div>      
+          </div>
+        </div>
+    	</div>
+    </section>
+
+     <section class="ftco-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center pb-5 mb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+  <h2 class="footer-heading"></h2>
+          </div>
+        </div>
+        <div class="row d-flex no-gutters">
+          <div class="col-md-6 d-flex">
+             <video autoplay muted loop style="width: 450px;">
+        <source src="{% static 'images/download_bg.mp4' %}" type="video/mp4" />
+
+    </video>
+       <div class="col-md-10 pl-md-5 py-md-5">
+            <div class="services-2 w-100 d-flex">
+              <div class="text pl-4">
+                <h4>Read & Download</h4>
+                <p>Books gives us knowledge and makes us a well informed person as well. As we can see there are the various types of the books to read, such as history books, poem books, short story books, and so on.
+                 Books never lies to us. We should read books in our life for gaining more knowledge.</p>
+              </div>
+            </div>
+          </div>
+           </div>
+          </div>
+
+              <div class="row justify-content-center pb-5 mb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+  <h2 class="footer-heading"></h2>
+          </div>
+        </div>
+        <div class="row d-flex no-gutters">
+          <div class="col-md-6 d-flex">
+             <video autoplay muted loop style="width: 450px;">
+        <source src="{% static 'images/video_bg.mp4' %}" type="video/mp4" />
+
+    </video>
+       <div class="col-md-10 pl-md-5 py-md-5">
+            <div class="services-2 w-100 d-flex">
+              <div class="text pl-4">
+                <h4>Video Tutorial</h4>
+                <p>Here is how to learn from tutorial.Video allows us, as trainers, to connect ourselves with an audience we can’t see People don’t want to read about something. They want you to show them how to do it</p>
+              </div>
+            </div>
+          </div>
+           </div>
+          </div>
+       
+        </div>
+      </div>
+    </section>
+
+<footer class="footer">
+			<div class="container-fluid px-lg-5">
+				<div class="row">
+					<div class="col-md-9 py-5">
+						<div class="row">
+							<div class="col-md-4 mb-md-0 mb-4">
+								<h2 class="footer-heading">About us</h2>
+								<p>Libraries store the energy that fuels the imagination. They open up windows to the world and inspire us to explore and achieve. Libraries change lives for the better. A library is not a luxury but one of the necessities of life.</p>
+								<ul class="ftco-footer-social p-0">
+		              <li class="ftco-animate"><a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fsettings%2Faccount%3Flang%3Den" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
+		              <li class="ftco-animate"><a href="https://www.facebook.com/login/" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
+		              <li class="ftco-animate"><a href="https://www.instagram.com/" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
+		            </ul>
+							</div>
+							<div class="col-md-8">
+								<div class="row justify-content-center">
+									<div class="col-md-12 col-lg-10">
+										<div class="row">
+
+											<div class="col-md-6 mb-md-0 mb-4">
+												<h2 class="footer-heading">E-Library</h2>
+												    <img src="{% static 'images/1.jpg' %}" alt="#" height="70" width="70">
+                                                    <img src="{% static 'images/2.jpg' %}" alt="#" height="70" width="70">
+                                                    <img src="{% static 'images/3.jpg' %}" alt="#" height="70" width="70">
+                                                    <img src="{% static 'images/4.jpg' %}" alt="#" height="70" width="70">
+                                                    <img src="{% static 'images/5.jpg' %}" alt="#" height="70" width="70">
+                                                    <img src="{% static 'images/6.jpg' %}" alt="#" height="70" width="70">
+                                                    <img src="{% static 'images/7.jpg' %}" alt="#" height="70" width="70">
+                                                    <img src="{% static 'images/8.jpg' %}" alt="#" height="70" width="70">
+                                                    <img src="{% static 'images/9.jpg' %}" alt="#" height="70" width="70">
+											</div>
+
+                      <div class="col-md-4 mb-md-0 mb-4">
+                        <h2 class="footer-heading">Information</h2>
+                        <ul class="list-unstyled">
+                          <li><a href="h" class="py-1 d-block">Home</a></li>
+                          <li><a href="c" class="py-1 d-block">Contact Us</a></li>
+
+                        </ul>
+                      </div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</footer>
+
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js/scrollax.min.js' %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{% static 'js/google-map.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+
+    
+  </body>
+</html>

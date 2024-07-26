@@ -1,0 +1,270 @@
+{% load static %}
+{% include 'header.html' %}
+{% if fetch_trainer %}
+{% for trainer in fetch_trainer %}
+<!--=================================
+Page title -->
+<section class="page-title bg-holder bg-overlay-black-50" data-jarallax='{"speed": 0.6}' style="background-image: url(static/images/bg/07.jpg);">
+  <div class="container">
+    <div class="row position-relative">
+      <div class="col-12 text-center">
+          <h1 class="text-stroke-primary display-2 fw-bold text-uppercase">{{ trainer.trainer_name }}</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Our Trainers</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Our Trainers</li>
+            </ol>
+          </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+Page title -->
+
+ <!--=================================
+Trainers single -->
+<section class="space-pt">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mt-4 mt-lg-5">
+        <img class="img-fluid" src="{{ trainer.trainer_image.url }}" alt="{{ trainer.trainer_name }}">
+      </div>
+      <div class="col-lg-6 mt-5">
+        <blockquote class="blockquote">
+          {{ trainer.trainer_description }}
+          <cite class="d-block text-secondary mt-3">- {{ trainer.trainer_speciality }}</cite>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+ Trainers single -->
+ <!--=================================
+Classes -->
+<section class="space-ptb">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="section-title text-center">
+          <span class="sub-title text-secondary"><span class="title-shape me-2"></span> Class list by goals</span>
+          <h2>Join {{ trainer.trainer_name }} Classes</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-borderless table-striped mb-0">
+            <thead class="bg-white">
+              <th>Time</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+              <th>Saturday</th>
+              <th>Sunday</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>19.00 - 06.00</td>
+                <td class="bg-success text-white">Fitness</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr class="bg-white">
+                <td>19.00 - 07.00</td>
+                <td>-</td>
+                <td class="bg-success text-white">Boxcycle</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>19.00 - 08.00</td>
+                <td>-</td>
+                <td>-</td>
+                <td class="bg-success text-white">Body builing</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr class="bg-white">
+                <td>19.00 - 09.00</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td class="bg-success text-white">Crosfit</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>19.00 - 10.00</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td class="bg-success text-white">Cardio</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr class="bg-white">
+                <td>10.00 - 11.00</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td class="bg-success text-white">Yoga Basics</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>11.00 - 12.00</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td class="bg-success text-white">Sports</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+Classes -->
+
+ <!--=================================
+Trainers -->
+<section class="space-pb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <h4 class="mb-4">Awards</h4>
+        <ul class="ps-3 mb-4 mb-lg-0">
+          <li class="mb-3">Echocardiography</li>
+          <li class="mb-3">Implantable Cardiac Monitor (ICM)</li>
+          <li class="mb-3">Treadmill stress testing</li>
+          <li class="mb-3">Transoesophageal echocardiogram (TOE)</li>
+          <li class="mb-3">Pacemaker checks</li>
+          <li>Holter monitoring</li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <h4 class="mb-4">Details</h4>
+        <div class="h5 mb-4">
+          Experience: <span class="font-md">8 Year</span>
+        </div>
+        <div class="h5 mb-4">
+          Age: <span class="font-md">26</span>
+        </div>
+        <div class="h5 mb-4">
+          Weight: <span class="font-md">76Kg</span>
+        </div>
+        <div class="h5 mb-4">
+          Phone: <span class="font-md">+(704) 279-1249</span>
+        </div>
+        <div class="h5 mb-4 mb-lg-0">
+          Email: <span class="font-md">letstalk@luvfit.com</span>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <h4 class="mb-4">Key Skills</h4>
+        <div class="progress-item mb-4">
+          <div class="d-flex mb-2">
+            <div>Trainer</div>
+            <span class="ms-auto ">70%</span>
+          </div>
+          <div class="progress" style="height: 7px;">
+            <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        <div class="progress-item mb-4">
+          <div class="d-flex mb-2">
+            <div>Leadership</div>
+            <span class="ms-auto ">65%</span>
+          </div>
+          <div class="progress" style="height: 7px;">
+            <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        <div class="progress-item mb-4">
+          <div class="d-flex mb-2">
+            <div>Planning</div>
+            <span class="ms-auto ">88%</span>
+          </div>
+          <div class="progress" style="height: 7px;">
+            <div class="progress-bar" role="progressbar" style="width: 88%;" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="d-flex mb-2">
+            <div>Process </div>
+            <span class="ms-auto ">78%</span>
+          </div>
+          <div class="progress" style="height: 7px;">
+            <div class="progress-bar" role="progressbar" style="width: 78%;" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+ Trainers -->
+{% endfor %}
+{% endif %}
+ <!--=================================
+Testimonial -->
+<section class="space-ptb bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-7 col-md-7">
+        <div class="section-title">
+          <h2>Contact me</h2>
+          <p class="font-md mt-3">For those of you who are serious about having more.</p>
+        </div>
+        <form class="row">
+          <div class="mb-2 col-lg-6">
+            <input type="text" class="form-control" placeholder="Name">
+          </div>
+          <div class="mb-2 col-lg-6">
+            <input type="text" class="form-control" placeholder="Email">
+          </div>
+          <div class="mb-2 col-12">
+            <input type="text" class="form-control" placeholder="Subject">
+          </div>
+          <div class="mb-3 col-12">
+            <textarea class="form-control" rows="3" placeholder="Message"></textarea>
+          </div>
+          <div class="mb-3 mb-0 col-12">
+            <a class="btn btn-primary" href="#"> <span> Become A Member </span> </a>
+          </div>
+        </form>
+        <i class="mt-4 d-block">The first thing to remember about success is that it is a process</i>
+      </div>
+      <div class="col-xl-4 offset-xl-1 col-md-5 mt-4 mt-md-0">
+        <iframe class="h-100 w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d651276.8223302028!2d-112.26948898677708!3d40.713748022764676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8752f530948459a5%3A0x5ea5d81be1facaf0!2sEnvato%20Usa%2C%20Inc!5e0!3m2!1sen!2sin!4v1573620281166!5m2!1sen!2sin" style="border:0;" allowfullscreen=""></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+Testimonial -->
+
+{% include 'footer.html' %}

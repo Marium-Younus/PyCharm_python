@@ -1,0 +1,121 @@
+{% load static %}
+{% include 'admin-header.html' %}
+    <div class="py-4">
+        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                <li class="breadcrumb-item"> <a href="#">
+                    <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                    </a> </li>
+                <li class="breadcrumb-item"><a href="#">Order</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Pending Orders</li>
+            </ol>
+        </nav>
+        <div class="d-flex justify-content-between">
+            <h1 class="h4">Pending Orders</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-xl-12">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="card border-0 shadow">
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th class="border-bottom" scope="col">ID</th>
+                                        <th class="border-bottom" scope="col">User Name</th>
+                                        <th class="border-bottom" scope="col">User Address</th>
+                                        <th class="border-bottom" scope="col">User Phone Number</th>
+                                        <th class="border-bottom" scope="col">User Email</th>
+                                        <th class="border-bottom" scope="col">Product Name</th>
+                                        <th class="border-bottom" scope="col">Total</th>
+                                        <th class="border-bottom" scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% if fetch_order %}
+                                {% for order in fetch_order %}
+                                {% if order.order_status == 'Pending' %}
+                                    <tr>
+                                        <th class="text-gray-900" scope="row">{{ order.order_id }}</th>
+                                        <td class="fw-bolder text-gray-500">{{ order.user_name }}</td>
+                                        <td class="fw-bolder text-gray-500">{{ order.user_address }}</td>
+                                        <td class="fw-bolder text-gray-500">{{ order.user_phone }}</td>
+                                        <td class="fw-bolder text-gray-500">{{ order.user_email }}</td>
+                                        <td class="fw-bolder text-gray-500">{{ order.product_name }}</td>
+                                        <td class="fw-bolder text-gray-500">${{ order.total_price }}</td>
+                                        <td class="fw-bolder text-gray-500">{{ order.order_status }}</td>
+                                        <td class="fw-bolder text-gray-500">
+                                            <div class="py-4">
+                <div class="dropdown">
+                    <button class="btn btn-gray-800 d-inline-flex align-items-center me-2 dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                    <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
+                        <a class="dropdown-item d-flex align-items-center" href="#">View Order</a>
+                        <form method="post" id="order-completed" >
+                            {% csrf_token %}
+                            <input type="hidden" value="{{ order.order_id }}" name="order_id">
+                            <input type="hidden" value="Completed" name="order_status">
+                            <button type="submit">Order Completed</button>
+                            <input type="submit" class="dropdown-item d-flex align-items-center" value="Order Completed">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {% endfor %}
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+$("#order-completed").on("submit", function(e){
+        e.preventDefault();
+        var formdata = new FormData(this);
+        var csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val();
+        formdata.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
+        $.ajax({
+            type: 'POST',
+            url: 'order_completed',
+            data: formdata,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+            const notyf = new Notyf({
+                position: {
+                    x: 'right',
+                    y: 'top',
+                },
+                types: [
+                    {
+                        type: 'error',
+                        background: '#198754',
+                        icon: {
+                            className: 'fas fa-times',
+                            tagName: 'span',
+                            color: '#fff'
+                        },
+                        dismissible: false
+                    }
+                ]
+            });
+            notyf.open({
+                type: 'error',
+                message: 'New Class Has Been Inserted'
+            });
+            }
+        });
+});
+</script>
+<script src="{% static 'admin/vendor/sweetalert2/dist/sweetalert2.all.min.js' %}"></script>
+{% include 'admin-footer.html' %}

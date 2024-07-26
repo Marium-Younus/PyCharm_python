@@ -1,0 +1,246 @@
+{% load static %}
+{% include 'header.html' %}
+
+    <!--=================================
+    Page title -->
+    <section class="page-title bg-holder bg-overlay-black-50" data-jarallax='{"speed": 0.6}' style="background-image: url(static/images/bg/06.jpg);">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center position-relative">
+              <h1 class="text-stroke-primary display-2 fw-bold text-uppercase">Gallery 2 Columns</h1>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Gallery 2 Columns</li>
+                </ol>
+              </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=================================
+    Page title -->
+
+    <!--=================================
+    Gallery -->
+    <section class="space-ptb">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="filters-group mb-2 mb-lg-5">
+              <button class="btn-filter  active" data-group="all"><span>All</span></button>
+              <button class="btn-filter" data-group="boxing"><span>Boxing</span></button>
+              <button class="btn-filter" data-group="fitness"><span>fitness</span></button>
+              <button class="btn-filter" data-group="yoga"><span>Yoga</span></button>
+              <button class="btn-filter" data-group="cardio"><span>Cardio</span></button>
+            </div>
+            <div class="my-shuffle-container columns-2 popup-gallery">
+              <!-- item START -->
+              <div class="grid-item" data-groups='["boxing"]'>
+                <div class="portfolio-item">
+                  <div class="position-relative">
+                    <img class="img-fluid" src="{% static 'images/gallery/01.jpg' %}" alt="">
+                    <span class="portfolio-category">
+                      <a href="#">GYM, </a>
+                      <a href="#">Boxing</a>
+                    </span>
+                  </div>
+                  <div class="portfolio-info">
+                    <div class="me-4">
+                      <a href="gallery-single.html" class="portfolio-title">Innovation</a>
+                      <p>I coach my clients to practice the.</p>
+                    </div>
+                    <a class="portfolio-img text-secondary" href="{% static 'images/gallery/02.jpg' %}"><i class="far fa-plus-square"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- item End -->
+              <!-- item START -->
+              <div class="grid-item" data-groups='["fitness"]'>
+                <div class="portfolio-item">
+                  <div class="position-relative">
+                    <img class="img-fluid" src="{% static 'images/gallery/02.jp' %}g" alt="">
+                    <span class="portfolio-category">
+                      <a href="#">fitness, </a>
+                      <a href="#">Yoga</a>
+                    </span>
+                  </div>
+                  <div class="portfolio-info">
+                    <div class="me-4">
+                      <a href="gallery-single.html" class="portfolio-title">Motivation</a>
+                      <p>I coach my clients to practice the.</p>
+                    </div>
+                    <a class="portfolio-img text-secondary" href="{% static 'images/gallery/02.jpg' %}"><i class="far fa-plus-square"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- item End -->
+              <!-- item START -->
+              <div class="grid-item" data-groups='["yoga"]'>
+                <div class="portfolio-item">
+                  <div class="position-relative">
+                    <img class="img-fluid" src="{% static 'images/gallery/03.jpg' %}" alt="">
+                    <span class="portfolio-category">
+                      <a href="#">Yoga, </a>
+                      <a href="#">GYM</a>
+                    </span>
+                  </div>
+                  <div class="portfolio-info">
+                    <div class="me-4">
+                      <a href="gallery-single.html" class="portfolio-title">Innovation</a>
+                      <p>I coach my clients to practice the.</p>
+                    </div>
+                    <a class="portfolio-img text-secondary" href="{% static 'images/gallery/03.jpg' %}"><i class="far fa-plus-square"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- item End -->
+              <!-- item START -->
+              <div class="grid-item" data-groups='["cardio", "fitness"]'>
+                <div class="portfolio-item">
+                  <div class="position-relative">
+                    <img class="img-fluid" src="{% static 'images/gallery/04.jpg' %}" alt="">
+                    <span class="portfolio-category">
+                      <a href="#">GYM, </a>
+                      <a href="#">Cardio</a>
+                    </span>
+                  </div>
+                  <div class="portfolio-info">
+                    <div class="me-4">
+                      <a href="gallery-single.html" class="portfolio-title">Innovation</a>
+                      <p>I coach my clients to practice the.</p>
+                    </div>
+                    <a class="portfolio-img text-secondary" href="{% static 'images/gallery/04.jpg' %}"><i class="far fa-plus-square"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- item End -->
+              <!-- item START -->
+              <div class="grid-item" data-groups='["cardio"]'>
+                <div class="portfolio-item">
+                  <div class="position-relative">
+                    <img class="img-fluid" src="{% static 'images/gallery/05.jpg' %}" alt="">
+                    <span class="portfolio-category">
+                      <a href="#">GYM, </a>
+                      <a href="#">Yoga</a>
+                    </span>
+                  </div>
+                  <div class="portfolio-info">
+                    <div class="me-4">
+                      <a href="gallery-single.html" class="portfolio-title">Innovation</a>
+                      <p>I coach my clients to practice the.</p>
+                    </div>
+                    <a class="portfolio-img text-secondary" href="{% static 'images/gallery/05.jpg' %}"><i class="far fa-plus-square"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- item End -->
+              <!-- item START -->
+              <div class="grid-item" data-groups='["boxing"]'>
+                <div class="portfolio-item">
+                  <div class="position-relative">
+                    <img class="img-fluid" src="{% static 'images/gallery/06.jpg' %}" alt="">
+                    <span class="portfolio-category">
+                      <a href="#">Cardio, </a>
+                      <a href="#">Fitness</a>
+                    </span>
+                  </div>
+                  <div class="portfolio-info">
+                    <div class="me-4">
+                      <a href="gallery-single.html" class="portfolio-title">Innovation</a>
+                      <p>I coach my clients to practice the.</p>
+                    </div>
+                    <a class="portfolio-img text-secondary" href="{% static 'images/gallery/06.jpg' %}"><i class="far fa-plus-square"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- item End -->
+              <!-- item START -->
+              <div class="grid-item" data-groups='["cardio"]'>
+                <div class="portfolio-item">
+                  <div class="position-relative">
+                    <img class="img-fluid" src="{% static 'images/gallery/07.jpg' %}" alt="">
+                    <span class="portfolio-category">
+                      <a href="#">Fitness, </a>
+                      <a href="#">Boxing</a>
+                    </span>
+                  </div>
+                  <div class="portfolio-info">
+                    <div class="me-4">
+                      <a href="gallery-single.html" class="portfolio-title">Innovation</a>
+                      <p>I coach my clients to practice the.</p>
+                    </div>
+                    <a class="portfolio-img text-secondary" href="{% static 'images/gallery/07.jpg' %}"><i class="far fa-plus-square"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- item End -->
+              <!-- item START -->
+              <div class="grid-item" data-groups='["boxing", "fitness"]'>
+                <div class="portfolio-item">
+                  <div class="position-relative">
+                    <img class="img-fluid" src="{% static 'images/gallery/08.jpg' %}" alt="">
+                    <span class="portfolio-category">
+                      <a href="#">GYM, </a>
+                      <a href="#">Fitness</a>
+                    </span>
+                  </div>
+                  <div class="portfolio-info">
+                    <div class="me-4">
+                      <a href="gallery-single.html" class="portfolio-title">Innovation</a>
+                      <p>I coach my clients to practice the.</p>
+                    </div>
+                    <a class="portfolio-img text-secondary" href="{% static 'images/gallery/08.jpg' %}"><i class="far fa-plus-square"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- item End -->
+              <!-- item START -->
+              <div class="grid-item" data-groups='["cardio"]'>
+                <div class="portfolio-item">
+                  <div class="position-relative">
+                    <img class="img-fluid" src="{% static 'images/gallery/09.jpg' %}" alt="">
+                    <span class="portfolio-category">
+                      <a href="#">GYM, </a>
+                      <a href="#">Cardio</a>
+                    </span>
+                  </div>
+                  <div class="portfolio-info">
+                    <div class="me-4">
+                      <a href="gallery-single.html" class="portfolio-title">Innovation</a>
+                      <p>I coach my clients to practice the.</p>
+                    </div>
+                    <a class="portfolio-img text-secondary" href="{% static 'images/gallery/09.jpg' %}"><i class="far fa-plus-square"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- item End -->
+              <!-- item START -->
+              <div class="grid-item" data-groups='["yoga"]'>
+                <div class="portfolio-item">
+                  <div class="position-relative">
+                    <img class="img-fluid" src="{% static 'images/gallery/10.jpg' %}" alt="">
+                    <span class="portfolio-category">
+                      <a href="#">Cardio, </a>
+                      <a href="#">Boxing</a>
+                    </span>
+                  </div>
+                  <div class="portfolio-info">
+                    <div class="me-4">
+                      <a href="gallery-single.html" class="portfolio-title">Innovation</a>
+                      <p>I coach my clients to practice the.</p>
+                    </div>
+                    <a class="portfolio-img text-secondary" href="{% static 'images/gallery/10.jpg' %}"><i class="far fa-plus-square"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- item End -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=================================
+    Gallery -->
+
+{% include 'footer.html' %}
